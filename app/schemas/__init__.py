@@ -1,4 +1,4 @@
-from pydantic import BaseModel, EmailStr
+from pydantic import BaseModel, ConfigDict, EmailStr
 from typing import Optional, List
 from enum import Enum
 
@@ -11,12 +11,11 @@ class UserCreate(BaseModel):
 
 
 class UserOut(BaseModel):
+    model_config = ConfigDict(from_attributes=True)
+
     id: int
     email: str
     role: str
-
-    class Config:
-        from_attributes = True
 
 
 class Token(BaseModel):
@@ -35,10 +34,9 @@ class ProductCreate(BaseModel):
 
 
 class ProductOut(ProductCreate):
-    id: int
+    model_config = ConfigDict(from_attributes=True)
 
-    class Config:
-        from_attributes = True
+    id: int
 
 
 # --- Cart ---
@@ -49,11 +47,10 @@ class CartItem(BaseModel):
 
 
 class CartOut(BaseModel):
+    model_config = ConfigDict(from_attributes=True)
+
     user_id: int
     items: List[CartItem]
-
-    class Config:
-        from_attributes = True
 
 
 # --- Orders ---
@@ -65,14 +62,13 @@ class OrderItemDetail(BaseModel):
 
 
 class OrderOut(BaseModel):
+    model_config = ConfigDict(from_attributes=True)
+
     id: int
     user_id: int
     items: List[OrderItemDetail]
     status: str
     total: float
-
-    class Config:
-        from_attributes = True
 
 
 # --- Reviews ---
@@ -83,9 +79,8 @@ class ReviewCreate(BaseModel):
 
 
 class ReviewOut(ReviewCreate):
+    model_config = ConfigDict(from_attributes=True)
+
     id: int
     product_id: int
     user_id: int
-
-    class Config:
-        from_attributes = True
