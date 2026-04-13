@@ -1,10 +1,12 @@
 # SportShop API — Claude Code Project Memory
 
 ## Project Overview
+
 Minimal FastAPI e-commerce backend for sporting goods. Used as a learning sandbox
 for claude-howto modules (slash commands, memory, skills, subagents, hooks, MCP, plugins).
 
 ## Stack
+
 - Python 3.13
 - FastAPI + Pydantic v2
 - SQLAlchemy 2.x with SQLite (test: in-memory via conftest.py)
@@ -13,7 +15,8 @@ for claude-howto modules (slash commands, memory, skills, subagents, hooks, MCP,
 - ruff for linting, bandit for security scanning, mypy for type checking
 
 ## Project Structure
-```
+
+```text title="SportShop API Directory Structure"
 app/
   main.py           # FastAPI app, router registration, CORS
   core/
@@ -37,6 +40,7 @@ tests/
 ```
 
 ## Coding Standards
+
 - All endpoints must have a `response_model` declared
 - Auth-required endpoints use `Depends(get_current_user)`
 - Admin-only writes check `current_user.role != UserRole.admin`
@@ -45,6 +49,7 @@ tests/
 - Ruff line length: 100 chars
 
 ## Known Intentional Defects (for QE learning exercises)
+
 These defects are deliberate. Do not fix them unless explicitly instructed.
 
 1. **Hardcoded JWT secret** — `app/core/security.py` line ~10
@@ -64,6 +69,7 @@ These defects are deliberate. Do not fix them unless explicitly instructed.
    - Concurrent orders can oversell inventory
 
 ## Test Strategy
+
 - `tests/integration/test_orders.py` contains defect-documenting tests that
   are expected to FAIL until defects are fixed. This is intentional.
 - Run `pytest --tb=short` to see current pass/fail state
@@ -71,12 +77,14 @@ These defects are deliberate. Do not fix them unless explicitly instructed.
 - Run `ruff check app/` for linting
 
 ## Running Locally
+
 ```bash
 python -m uvicorn app.main:app --reload
 # API docs at http://localhost:8000/docs
 ```
 
 ## Claude Code Notes
+
 - Use planning mode before any refactor that touches orders.py (state machine complexity)
 - The secure-reviewer subagent should target app/core/security.py and app/routers/products.py first
 - The test-engineer subagent should focus on the order cancellation state machine
