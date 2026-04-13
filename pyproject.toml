@@ -1,0 +1,18 @@
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-v --tb=short"
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I"]
+
+[tool.mypy]
+ignore_missing_imports = true
+python_version = "3.11"
+
+[tool.bandit]
+exclude_dirs = ["tests"]
+skips = ["B101"]
