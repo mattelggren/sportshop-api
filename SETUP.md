@@ -215,7 +215,7 @@ pytest cases covering 0, 1, 5, 6, -1, and 99 as inputs.
 
 ## Directory reference
 
-```
+```text title="SportShop API Project Structure"
 sportshop-api/
 ├── app/                        # Application source
 │   ├── main.py
