@@ -1,3 +1,9 @@
+---
+name: find-defects
+description: Scan the codebase for known intentional defects listed in CLAUDE.md plus any additional security or correctness issues. Use when auditing the app for bugs or vulnerabilities.
+disable-model-invocation: true
+---
+
 # /find-defects
 
 Scan the codebase for the known intentional defects documented in CLAUDE.md,

@@ -1,5 +1,7 @@
 ---
-description: Analyze code for performance issues and suggest optimizations
+name: optimize
+description: Analyze code for performance issues and suggest optimizations. Use when reviewing code for bottlenecks, memory leaks, algorithm improvements, or concurrency problems.
+disable-model-invocation: true
 ---
 
 # Code Optimization
@@ -17,6 +19,3 @@ Format your response with:
 - Location in code
 - Explanation
 - Recommended fix with code example
-
----
-**Last Updated**: April 9, 2026

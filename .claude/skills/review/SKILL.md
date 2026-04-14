@@ -1,3 +1,9 @@
+---
+name: review
+description: Perform a structured code review of the specified file or module. Checks security, correctness, test coverage, and code style against project standards.
+disable-model-invocation: true
+---
+
 # /review
 
 Perform a structured code review of the specified file or module.

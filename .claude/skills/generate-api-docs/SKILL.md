@@ -1,3 +1,9 @@
+---
+name: generate-api-docs
+description: Generate markdown API documentation for a router module. Use when documenting endpoints, request/response schemas, auth requirements, and error responses.
+disable-model-invocation: true
+---
+
 # /generate-api-docs
 
 Generate markdown API documentation for a router module.
