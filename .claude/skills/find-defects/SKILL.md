@@ -9,9 +9,13 @@ disable-model-invocation: true
 Scan the codebase for the known intentional defects documented in CLAUDE.md,
 plus any additional security or correctness issues.
 
+## Known Defects to Find:
+
+@CLAUDE.md
+
 ## Instructions
 
-1. Read CLAUDE.md to load the known defect list
+1. Read the Known Intentional Defects section above
 2. Locate each defect in the source code and confirm it is present
 3. Scan for additional issues not in the known list
 4. For each defect (known and new), provide:
