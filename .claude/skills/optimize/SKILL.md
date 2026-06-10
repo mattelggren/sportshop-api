@@ -1,6 +1,7 @@
 ---
 name: optimize
 description: Analyze code for performance issues and suggest optimizations. Use when reviewing code for bottlenecks, memory leaks, algorithm improvements, or concurrency problems.
+argument-hint: <file-or-module>
 disable-model-invocation: true
 ---
 
