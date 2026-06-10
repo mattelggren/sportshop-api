@@ -5,6 +5,10 @@
 Minimal FastAPI e-commerce backend for sporting goods. Used as a learning sandbox
 for claude-howto modules (slash commands, memory, skills, subagents, hooks, MCP, plugins).
 
+## Guidance
+
+@README.md for overall project guidance.
+
 ## Stack
 
 - Python 3.13
@@ -47,6 +51,7 @@ tests/
 - No raw SQL; use SQLAlchemy ORM only
 - Schemas live in `app/schemas/__init__.py`; do not scatter them into routers
 - Ruff line length: 100 chars
+
 
 ## Known Intentional Defects (for QE learning exercises)
 
