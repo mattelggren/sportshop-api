@@ -1,4 +1,9 @@
 {
+  "permissions": {
+    "allow": [
+      "Bash(cd ~/Projects/repos/sportshop-api && python -m pytest --tb=no -q 2>&1 | tail -5)"
+    ]
+  },
   "hooks": {
     "PreToolUse": [
       {

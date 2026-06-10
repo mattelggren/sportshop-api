@@ -1,6 +1,7 @@
 ---
 name: find-defects
 description: Scan the codebase for known intentional defects listed in CLAUDE.md plus any additional security or correctness issues. Use when auditing the app for bugs or vulnerabilities.
+allowed-tools: Bash(*)
 disable-model-invocation: true
 ---
 
@@ -12,6 +13,10 @@ plus any additional security or correctness issues.
 ## Known Defects to Find:
 
 @CLAUDE.md
+
+## Current Test State
+
+!`cd ~/Projects/repos/sportshop-api && source .venv/bin/activate && python -m pytest --tb=no -q 2>&1 | tail -5`
 
 ## Instructions
 
