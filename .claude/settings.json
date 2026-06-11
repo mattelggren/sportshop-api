@@ -22,7 +22,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "bash /Users/elggren/Projects/sportshop-api/.claude/hooks/security-scan.sh \"$FILE\""
+            "command": "python3 \"$CLAUDE_PROJECT_DIR/.claude/hooks/security-scan.py\""
           }
         ]
       }
