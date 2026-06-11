@@ -5,9 +5,11 @@
 Minimal FastAPI e-commerce backend for sporting goods. Used as a learning sandbox
 for claude-howto modules (slash commands, memory, skills, subagents, hooks, MCP, plugins).
 
+
 ## Guidance
 
 @README.md for overall project guidance.
+
 
 ## Stack
 
@@ -17,6 +19,7 @@ for claude-howto modules (slash commands, memory, skills, subagents, hooks, MCP,
 - JWT auth via python-jose + passlib
 - pytest + httpx for testing
 - ruff for linting, bandit for security scanning, mypy for type checking
+
 
 ## Project Structure
 
@@ -57,21 +60,8 @@ tests/
 
 These defects are deliberate. Do not fix them unless explicitly instructed.
 
-1. **Hardcoded JWT secret** — `app/core/security.py` line ~10
-   - `SECRET_KEY = "dev-secret-key-replace-in-production"`
-   - Should be loaded from environment variable
+For the full defect checklist, see [skills/find-defects/references/defect-known-defects.md](skills/find-defects/references/known-defects.md)
 
-2. **Unauthenticated product creation** — `app/routers/products.py` POST `/`
-   - `create_product` has no `Depends(get_current_user)` guard
-   - Any unauthenticated caller can create products
-
-3. **Unconstrained review rating** — `app/models/catalog.py` Review model + `app/routers/reviews.py`
-   - `rating` has no database or Pydantic constraint (should be 1–5)
-   - Values like 0, -1, 99 are accepted without error
-
-4. **Non-atomic stock decrement** — `app/routers/orders.py` `place_order`
-   - Stock decremented per-product without a transaction lock
-   - Concurrent orders can oversell inventory
 
 ## Test Strategy
 
@@ -80,6 +70,7 @@ These defects are deliberate. Do not fix them unless explicitly instructed.
 - Run `pytest --tb=short` to see current pass/fail state
 - Run `bandit -c pyproject.toml -r app/` for security scan
 - Run `ruff check app/` for linting
+
 
 ## Running Locally
 
