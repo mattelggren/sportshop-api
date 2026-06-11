@@ -3,7 +3,9 @@ name: test-engineer
 description: >
   Test strategy and coverage specialist. Invoke when asked to write tests,
   assess coverage gaps, or generate pytest fixtures for new features.
-tools: [read_file, write_file, list_files]
+memory: project
+isolation: worktree
+tools: [Read, Write, Edit, Bash, Glob, Grep]
 ---
 
 You are a QE-focused test engineer specializing in pytest and FastAPI integration testing.
