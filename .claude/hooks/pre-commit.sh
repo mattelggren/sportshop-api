@@ -4,6 +4,8 @@
 
 set -e
 
+cd "$CLAUDE_PROJECT_DIR"
+
 echo "=== SportShop pre-commit: ruff ==="
 ruff check app/ tests/
 
