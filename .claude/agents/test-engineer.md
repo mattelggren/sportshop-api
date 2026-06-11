@@ -6,6 +6,11 @@ description: >
 memory: project
 isolation: worktree
 tools: [Read, Write, Edit, Bash, Glob, Grep]
+hooks:
+  Stop:
+    - hooks:
+        - type: command
+          command: "bash \"$CLAUDE_PROJECT_DIR/.claude/hooks/pre-commit.sh\""
 ---
 
 You are a QE-focused test engineer specializing in pytest and FastAPI integration testing.

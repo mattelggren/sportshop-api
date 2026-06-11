@@ -16,6 +16,17 @@
         ]
       }
     ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "prompt",
+            "prompt": "Check if any Python files were written or edited this session. If so, verify that pytest was run after the changes. If tests were not run, return decision: block with reason: 'Tests were not run after code changes. Please run pytest before finishing.'",
+            "timeout": 30
+          }
+        ]
+      }
+    ],
     "PostToolUse": [
       {
         "matcher": "Write",
