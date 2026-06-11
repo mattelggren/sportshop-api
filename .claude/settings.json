@@ -7,11 +7,11 @@
   "hooks": {
     "PreToolUse": [
       {
-        "matcher": "Bash",
+        "matcher": "Bash(git commit:*)",
         "hooks": [
           {
             "type": "command",
-            "command": "bash /Users/elggren/Projects/sportshop-api/.claude/hooks/pre-commit.sh"
+            "command": "bash \"$CLAUDE_PROJECT_DIR/.claude/hooks/pre-commit.sh\""
           }
         ]
       }
