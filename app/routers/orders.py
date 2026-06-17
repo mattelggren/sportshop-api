@@ -7,6 +7,7 @@ from app.core.security import get_current_user
 from app.models.catalog import Cart, Order, Product, OrderStatus
 from app.models.user import User
 from app.schemas import OrderOut
+from app.services.inventory import check_low_stock
 
 router = APIRouter()
 
@@ -33,6 +34,7 @@ def place_order(
         # INTENTIONAL DEFECT: stock decremented but not committed atomically;
         # concurrent orders can oversell
         product.stock_qty -= item["qty"]
+        check_low_stock(product)
         line_total = product.price * item["qty"]
         total += line_total
         order_items.append({

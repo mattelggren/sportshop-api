@@ -7,6 +7,7 @@ from app.core.security import get_current_user
 from app.models.catalog import Product
 from app.models.user import User, UserRole
 from app.schemas import ProductCreate, ProductOut
+from app.services.inventory import check_low_stock
 
 router = APIRouter()
 
@@ -40,6 +41,7 @@ def create_product(
     db.add(product)
     db.commit()
     db.refresh(product)
+    check_low_stock(product)
     return product
 
 
@@ -59,6 +61,7 @@ def update_product(
         setattr(product, field, value)
     db.commit()
     db.refresh(product)
+    check_low_stock(product)
     return product
 
 
